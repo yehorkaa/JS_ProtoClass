@@ -57,8 +57,8 @@ class Flat {
 
 const habitant1 = new Flat({});
 const habitant2 = new Flat({});
-habitant1.addToList(human1.gender);
-habitant2.addToList(human2.name);
+habitant1.addToList(human1);
+habitant2.addToList(human2);
 console.log(habitant1);
 console.log(habitant2);
 class Building {
@@ -68,7 +68,7 @@ class Building {
     this.maxFlats = param.maxFlats;
   }
   addFlat(flat) {
-    if (flat.inhabitants.length < this.maxFlats) {
+    if (flat.inhabitants.length <= this.maxFlats) {
       this.flats.push(flat);
     } else {
       console.log("STOP RIGHT THERE!");
