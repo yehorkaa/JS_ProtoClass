@@ -36,8 +36,10 @@ const human2 = new Human({
   name: "James",
   gender: "Male",
 });
+
 console.log(human1);
 console.log(human2);
+
 // human1.name = 'Julia'
 // console.log(human1.name);
 // human1.gender = 'Female'
@@ -55,12 +57,14 @@ class Flat {
   }
 }
 
-const habitant1 = new Flat({});
-const habitant2 = new Flat({});
+const habitant1 = new Flat();
+const habitant2 = new Flat();
 habitant1.addToList(human1);
 habitant2.addToList(human2);
+
 console.log(habitant1);
 console.log(habitant2);
+
 class Building {
   flats = [];
   maxFlats;
@@ -68,17 +72,19 @@ class Building {
     this.maxFlats = param.maxFlats;
   }
   addFlat(flat) {
-    if (flat.inhabitants.length <= this.maxFlats) {
-      this.flats.push(flat);
+    if (this.flats.length < this.maxFlats) {
+      return this.flats.push(flat);
     } else {
-      console.log("STOP RIGHT THERE!");
+      console.log("THE EXTRA INHABITANT");
     }
+    // console.log(this.flats.length)
   }
 }
 
 const blockOFflats = new Building({
-  maxFlats: 3,
+  maxFlats: 1,
 });
 blockOFflats.addFlat(habitant1);
 blockOFflats.addFlat(habitant2);
+
 console.dir(blockOFflats, { depth: 8 });
